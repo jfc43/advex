@@ -1,0 +1,29 @@
+{
+  "_comment": "===== MODEL CONFIGURATION =====",
+  "model_dir": "models/nat_trained",
+
+  "_comment": "===== GPU CONFIGURATION =====",
+  "gpu_device": "0",
+
+  "_comment": "===== TRAINING CONFIGURATION =====",
+  "random_seed": 4557077,
+  "max_num_training_steps": 100000,
+  "num_output_steps": 100,
+  "num_summary_steps": 100,
+  "l1_scale": 0.01,
+  "num_checkpoint_steps": 300,
+  "training_batch_size": 50,
+
+  "_comment": "===== EVAL CONFIGURATION =====",
+  "num_eval_examples": 10000,
+  "eval_batch_size": 200,
+  "IG_steps": 100,
+
+  "_comment": "=====ADVERSARIAL EXAMPLES CONFIGURATION=====",
+  "epsilon": 0.1,
+  "attack_steps": 100,
+  "step_size": 0.01,
+  "random_start": true,
+  "loss_func": "xent",
+  "store_adv_path": "attack.npy"
+}

@@ -1,0 +1,13 @@
+USING ADAM
+
+Nat Trained
+Accuracy: 91.05%
+Average Gini: 0.654
+
+L1 Regularization lambda = 0.02
+Accuracy: 89.8%
+Average Gini: 0.755
+
+Adv Trained eps = 0.1
+Accuracy: 89.2%
+Average Gini: 0.777

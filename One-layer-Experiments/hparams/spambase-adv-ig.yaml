@@ -1,0 +1,30 @@
+eager: True
+attribution_shap: False
+epochs: 30
+batch: 32
+eps: 1.0
+pgd_steps: 1
+adam: False
+l1: 0.0
+clean_epochs: 0
+perturb_input: True
+eps_step_factor: 5.0
+grid:
+  eps:
+    - 0.0
+    - 0.03
+    - 0.07
+    - 0.1
+    - 0.12
+    - 0.13
+    - 0.14
+    - 0.15
+    - 0.16
+    - 0.17
+    - 0.18
+    - 0.19
+    - 0.2
+
+
+
+

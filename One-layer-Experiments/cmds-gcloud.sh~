@@ -1,0 +1,23 @@
+#python custom_train_mnist_adv.py --hparams=hparams/mnist-adv-input.yaml --out ~/Xbox/aistats/mnist-input-adv
+#python custom_train_mnist_adv.py --hparams=hparams/mnist-adv-input-l1.yaml --out ~/Xbox/aistats/mnist-input-l1
+#python custom_train_mnist_adv.py --hparams=hparams/mnist-adv-last.yaml --out ~/Xbox/aistats/mnist-last-adv
+#python custom_train_mnist_adv.py --hparams=hparams/mnist-adv-last-l1.yaml --out ~/Xbox/aistats/mnist-last-l1
+
+#python mushroom_tf2.py --hparams=hparams/mushroom-dnn-adv-input.yaml --out ~/Xbox/aistats/mushroom-input-adv
+#python mushroom_tf2.py --hparams=hparams/mushroom-dnn-adv-last.yaml --out ~/Xbox/aistats/mushroom-last-adv
+#python mushroom_tf2.py --hparams=hparams/mushroom-dnn-adv-last-l1.yaml --out ~/Xbox/mushroom-last-l1
+
+# Mushroom 1-layer
+python mushroom_1layer_tf2.py --hparams=hparams/mushroom-1layer-adv-input.yaml --out ~/Xbox/aistats-oct6/mushroom-1layer-adv-input
+python mushroom_1layer_tf2.py --hparams=hparams/mushroom-1layer-l1-input.yaml --out ~/Xbox/aistats-oct6/mushroom-1layer-l1-input
+
+
+# Spambase 1-layer
+python spambase_1layer_tf2.py --hparams=hparams/spambase-1layer-adv-input.yaml --out ~/Xbox/aistats-oct6/spambase-1layer-adv-input
+python spambase_1layer_tf2.py --hparams=hparams/spambase-1layer-l1-input.yaml --out ~/Xbox/aistats-oct6/spambase-1layer-l1-input
+
+
+
+
+
+
