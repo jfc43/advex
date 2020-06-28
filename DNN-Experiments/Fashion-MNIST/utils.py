@@ -6,7 +6,6 @@ import matplotlib.pyplot as plt
 
 import scipy
 import scipy.stats as stats
-from tensorflow.python.ops import gen_nn_ops
 from tensorflow.examples.tutorials.mnist import input_data
 import os
 import re
@@ -31,16 +30,6 @@ def gini(array):
   n = array.shape[0]
   # Gini coefficient:
   return ((np.sum((2 * index - n - 1) * array)) / (n * np.sum(array)))
-
-def pct1pct(x):
-  x = np.abs(x)
-  x_max = np.max(x)
-  return np.sum(x >= 0.01 * x_max)/len(x)
-
-def entropy(x):
-  x = np.abs(x)
-  probs = np.maximum(x/np.sum(x), 1e-10)
-  return -np.sum(probs * np.log(probs))/np.log(len(x))
 
 def softmax(x):
     """Compute softmax values for each sets of scores in x."""
@@ -80,7 +69,7 @@ def plot(data, xi=None, cmap='RdBu_r', axis=plt, percentile=100, dilation=3.0, a
         axis.imshow(data, extent=extent, interpolation='none', cmap=cmap, vmin=-abs_min, vmax=abs_max)
     if overlay is not None:
         axis.imshow(overlay, extent=extent, interpolation='none', cmap=cmap_xi, alpha=alpha)
-        
+
     axis.axis('off')
 
     axis.xticks([])

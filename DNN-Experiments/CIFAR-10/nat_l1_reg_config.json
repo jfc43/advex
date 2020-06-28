@@ -1,0 +1,36 @@
+{
+  "_comment": "===== MODEL CONFIGURATION =====",
+  "model_dir": "models/nat_trained_with_l1_reg",
+
+  "_comment": "===== DATASET CONFIGURATION =====",
+  "data_path": "cifar10_data",
+
+  "_comment": "===== GPU CONFIGURATION =====",
+  "gpu_device": "0",
+
+  "_comment": "===== TRAINING CONFIGURATION =====",
+  "tf_random_seed": 451760341,
+  "np_random_seed": 216105420,
+  "max_num_training_steps": 70001,
+  "num_output_steps": 100,
+  "num_summary_steps": 100,
+  "num_checkpoint_steps": 10000,
+  "training_batch_size": 128,
+  "step_size_schedule": [[0, 0.1], [40000, 0.01], [60000, 0.001]],
+  "weight_decay": 0.0002,
+  "momentum": 0.9,
+  "l1_scale": 0.000001,
+
+  "_comment": "===== EVAL CONFIGURATION =====",
+  "num_eval_examples": 10000,
+  "eval_batch_size": 100,
+  "eval_on_cpu": false,
+
+  "_comment": "=====ADVERSARIAL EXAMPLES CONFIGURATION=====",
+  "epsilon": 1.0,
+  "attack_steps": 2,
+  "step_size": 1.0,
+  "random_start": true,
+  "loss_func": "xent",
+  "store_adv_path": "attack.npy"
+}

@@ -4,7 +4,7 @@ import cv2
 import os
 import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data
-from utils import integrated_gradients, softmax, entropy, pct1pct, gini
+from utils import integrated_gradients, softmax, gini
 import json
 
 from model import Model
@@ -36,8 +36,6 @@ if __name__=='__main__':
   num_eval_examples = X.shape[0]
 
   total_corr = 0.0
-  total_ent = 0.0
-  total_a1p = 0.0
   total_gini = 0.0
 
   with tf.Session() as sess:
@@ -56,27 +54,15 @@ if __name__=='__main__':
       IG = integrated_gradients(sess, reference_image, test_image, original_label, model, gradient_func='output_input_gradient', steps=num_steps)
 
       IG_vector = IG.flatten()
-
-      ent = entropy(IG_vector)
-      total_ent += ent
-
-      a1p = pct1pct(IG_vector)
-      total_a1p += a1p
-
       gini_v = gini(IG_vector)
       total_gini += gini_v
 
-      log_file.write('%d %.4f %.4f %.4f\n'%(corr, ent, a1p, gini_v))
+      log_file.write('%d %.4f\n'%(corr, gini_v))
 
     acc = total_corr / num_eval_examples
-
-    avg_ent = total_ent / num_eval_examples
-    avg_a1p = total_a1p / num_eval_examples
     avg_gini = total_gini / num_eval_examples
 
     print('Accuracy: {:.2f}%'.format(100 * acc))
-    print('Average Entropy: {:.4f}'.format(avg_ent))
-    print('Average A1P: {:.2f}%'.format(100 * avg_a1p))
     print('Average Gini: {:.4f}'.format(avg_gini))
 
     log_file.close()

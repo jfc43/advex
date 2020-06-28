@@ -6,10 +6,17 @@ import matplotlib.pyplot as plt
 
 import scipy
 import scipy.stats as stats
-from tensorflow.examples.tutorials.mnist import input_data
+import cifar10_input
 import os
 import re
 import sys
+
+config_gpu = tf.ConfigProto()
+config_gpu.gpu_options.allow_growth = True
+
+EPSILON = 1e-12
+MIN_INPUT = np.zeros([1,32,32,3]).astype(np.float32)
+MAX_INPUT = np.ones([1,32,32,3]).astype(np.float32)
 
 def gini(array):
 
@@ -78,15 +85,27 @@ def plot(data, xi=None, cmap='RdBu_r', axis=plt, percentile=100, dilation=3.0, a
     return axis
 
 def dataReader():
-    mnist = input_data.read_data_sets('MNIST_data', one_hot=False)
-    X = mnist.test.images.reshape([-1, 28, 28, 1])
-    y = mnist.test.labels
+    cifar = cifar10_input.CIFAR10Data('cifar10_data')
+    X = cifar.eval_data.xs
+    y = cifar.eval_data.ys
     return X, y.astype(int)
+
+def run_model(sess, model, tensor, inputs):
+
+    if len(inputs.shape) == 3:
+        inputs = np.expand_dims(inputs, 0)
+    elif len(inputs.shape) == 4:
+        pass
+    else:
+        raise ValueError('Invalid input dimensions!')
+
+    return sess.run(tensor, feed_dict={model.input: inputs})
 
 def get_session(number=None):
     config_gpu = tf.ConfigProto()
     config_gpu.gpu_options.allow_growth = True
     return tf.Session(config=config_gpu)
+    
 
 def integrated_gradients(
     sess,
