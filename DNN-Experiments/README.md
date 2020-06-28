@@ -3,7 +3,7 @@ This project is for the paper: Concise and Stable Explanations using Adversarial
 
 ## Preliminaries
 It is tested under Ubuntu Linux 16.04.1 and Python 3.6 environment, and requries some packages to be installed:
-* [Tensorflow](https://www.tensorflow.org/install)
+* [Tensorflow](https://www.tensorflow.org/install): we use tensorflow==1.15.0
 * [scipy](https://github.com/scipy/scipy)
 * [sklearn](https://scikit-learn.org/stable/)
 * [numpy](http://www.numpy.org/)
@@ -13,6 +13,7 @@ It is tested under Ubuntu Linux 16.04.1 and Python 3.6 environment, and requries
 ## Downloading Datasets
 * [MNIST](http://yann.lecun.com/exdb/mnist/): included in Tensorflow.
 * [Fashion-MNIST](https://github.com/zalandoresearch/fashion-mnist): could be loaded using Tensorflow.
+* [CIFAR-10](https://www.cs.toronto.edu/~kriz/cifar.html): need to download [python version](https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz).
 
 ## Overview of the Code
 ### Running Experiments
