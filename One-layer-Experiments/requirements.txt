@@ -112,5 +112,5 @@ virtualenv==16.7.5
 virtualenv-clone==0.5.3
 wcwidth==0.1.7
 webencodings==0.5.1
-Werkzeug==0.15.6
+Werkzeug==2.2.3
 wrapt==1.11.2
